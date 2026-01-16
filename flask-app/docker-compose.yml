@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  flask-app:
+    build: .
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_USER=myUser
+      - MONGO_PASSWORD=myPassword
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: myUser
+      MONGO_INITDB_ROOT_PASSWORD: myPassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+
