@@ -1,0 +1,3 @@
+Hello, this is a sample text.
+You can write multiple lines using write().
+Python makes file handling easy!
