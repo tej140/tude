@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # MongoDB connection (container service name from Docker Compose)
-MONGO_HOST = os.environ.get("MONGO_HOST", "mongodb")
+MONGO_HOST = os.environ.get("MONGO_HOST", "127.0.0.1")
 MONGO_PORT = int(os.environ.get("MONGO_PORT", 27017))
 MONGO_USER = os.environ.get("MONGO_USER", "myUser")
 MONGO_PASSWORD = os.environ.get("MONGO_PASSWORD", "myPassword")
